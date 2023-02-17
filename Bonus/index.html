@@ -12,8 +12,12 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <div class="text-center" id="app">
-  <h1 :class="titleClass">{{title}}</h1>
-  <img :class="imgClass" :src="srcImg" alt="">
+  <div :class="containerClass">
+    <h1 :class="titleClass">{{title}}</h1>
+    <img :class="imgClass" :src="srcImg" alt="">
+    <button type="button" class="btn btn-primary" @click="changeImg">Change Image</button>
+  </div>
+  
 </div>
 
 <script>
@@ -22,13 +26,34 @@
   createApp({
     data() {
       return {
+
+        containerClass: 'container d-flex flex-column align-items-center py-4',
+        
         title: 'Devil May Cry 4',
-        titleClass: 'py-4',
+        titleClass: 'mb-4',
 
         srcImg: './img/DevilMayCry4.jpg',
-        imgClass: 'border border-5 border-danger rounded-2 w-50'
+        imgClass: 'border border-5 border-danger rounded-2 w-50 mb-4',
+
+        listImg: ['./img/DevilMayCry4 (1).jpg', './img/DevilMayCry4 (2).png', './img/DevilMayCry4 (3).jpg',
+                  './img/DevilMayCry4 (4).jpg', './img/DevilMayCry4 (5).jpg']
+
+      }
+    },
+
+    methods: {
+
+      changeImg(){
+
+        const indexRandom = Math.floor(Math.random() * (4 - 0 + 1) + 0);
+
+        this.srcImg = this.listImg[indexRandom];
+
+        console.log(this.srcImg);
+
       }
     }
+
   }).mount('#app')
 </script>
 
