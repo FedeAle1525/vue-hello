@@ -11,7 +11,9 @@
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<div id="app">{{ message }}</div>
+<div id="app">
+  <h1 :class="titleClass">{{title}}</h1>
+</div>
 
 <script>
   const { createApp } = Vue
@@ -19,7 +21,8 @@
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        title: 'Devil May Cry 4',
+        titleClass: 'text-center py-4'
       }
     }
   }).mount('#app')
