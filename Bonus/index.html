@@ -11,8 +11,9 @@
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<div id="app">
+<div class="text-center" id="app">
   <h1 :class="titleClass">{{title}}</h1>
+  <img :class="imgClass" :src="srcImg" alt="">
 </div>
 
 <script>
@@ -22,7 +23,10 @@
     data() {
       return {
         title: 'Devil May Cry 4',
-        titleClass: 'text-center py-4'
+        titleClass: 'py-4',
+
+        srcImg: './img/DevilMayCry4.jpg',
+        imgClass: 'border border-5 border-danger rounded-2 w-50'
       }
     }
   }).mount('#app')
